@@ -35,7 +35,7 @@ func read() bool {
 	return true
 }
 
-func write(inputs [36]int8) bool {
+func write(inputs *[36]int8) bool {
 	log.Println("write", inputs)
 	return true
 }

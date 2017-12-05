@@ -115,8 +115,8 @@ func read() bool {
 	}
 }
 
-func write(inputs [36]int8) bool {
-	result, _, _ := procWrite.Call(uintptr(unsafe.Pointer(&inputs)))
+func write(inputs *[36]int8) bool {
+	result, _, _ := procWrite.Call(uintptr(unsafe.Pointer(inputs)))
 
 	if syscall.GetLastError() != nil {
 		log.Fatal("error call proc Write", syscall.GetLastError())

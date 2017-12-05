@@ -31,14 +31,14 @@ func Init() error {
 }
 
 // Push : push buttons
-func Push(inputs [36]int8) bool {
+func Push(inputs *[36]int8) bool {
 	return write(inputs)
 }
 
 // Release : release all buttons
 func Release() bool {
 	var inputs [36]int8
-	return write(inputs)
+	return write(&inputs)
 }
 
 // Close : close connection to the device

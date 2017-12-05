@@ -7,7 +7,7 @@ import (
 )
 
 // frame rate * 1000
-const frameRate uint64 = 59940
+const frameRate uint64 = 60000
 
 var stopped bool
 
@@ -36,7 +36,7 @@ func Process(states *[]State) {
 			continue
 		}
 
-		gcapi.Push(state.buttons)
+		gcapi.Push(&state.buttons)
 
 		totalFrames += uint64(state.frames)
 		sleepTime := start + int64(totalFrames*1000*1000*1000*1000/frameRate) - time.Now().UnixNano()
